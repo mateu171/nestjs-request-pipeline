@@ -1,0 +1,48 @@
+###
+GET http://localhost:3000/parts/nonexistent-id
+### 1. Створити запчастину
+POST http://localhost:3000/parts
+Content-Type: application/json
+
+{
+  "title": "  Brake pads  ",
+  "price": 500,
+  "oemCode": "  ABC123  ",
+  "condition": "NEW",
+  "carBrand": "  Toyota  "
+}
+
+###
+POST http://localhost:3000/parts
+Content-Type: application/json
+
+{
+  "title": "  Brake pads  ",
+  "price": 500,
+  "oemCode": "  ABC123  ",
+  "condition": "NEW",
+  "carBrand": "  Toyota  "
+}
+
+### 2. Отримати всі запчастини
+GET http://localhost:3000/parts
+
+### 3. Отримати одну запчастину
+# Заміни ID на справжній id із відповіді POST
+GET http://localhost:3000/parts/ae30dc8c-fda0-4457-84d2-b84d979cf359
+
+### 4. Оновити тільки ціну
+# Заміни ID на справжній id
+PATCH http://localhost:3000/parts/ae30dc8c-fda0-4457-84d2-b84d979cf359
+Content-Type: application/json
+
+{
+  "price": 1500
+}
+
+### 5. Видалити запчастину
+# Заміни ID на справжній id
+DELETE http://localhost:3000/parts/ae30dc8c-fda0-4457-84d2-b84d979cf359
+
+### 6. Перевірити, що запчастини більше немає
+GET http://localhost:3000/parts/ae30dc8c-fda0-4457-84d2-b84d979cf359
